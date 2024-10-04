@@ -1,0 +1,213 @@
+body {
+  background-color: #00000000;
+  color: rgb(156, 161, 163);
+  font-family: "Arial", sans-serif;
+}
+
+.main-bg {
+  background-color: #26242e;
+}
+
+.sidebar {
+  border-radius: 2%;
+  background-color: #26242e;
+  height: 100vh;
+  border: 1px solid;
+}
+
+.text-light {
+  color: #f5f5f5;
+}
+
+.my-files h5 {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.nav-link {
+  color: #2f2fc1;
+  margin-bottom: 10px;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.top-bar {
+  -webkit-app-region: drag;
+  background-color: transparent;
+  padding: 20px;
+}
+.input-url {
+  border-radius: 20px;
+}
+
+.more-settings {
+  background-color: #272526;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.form-select {
+  width: auto;
+}
+
+.file-list h5 {
+  font-size: 18px;
+}
+.btn {
+  line-height: 1;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.75em 1em;
+  padding-right: 1.25em;
+  color: #fff;
+  border: 1px solid transparent;
+  font-weight: 700;
+  border-radius: 2em;
+  font-size: 1rem;
+  box-shadow: 0 0.7em 1.5em -0.5em hsla(249, 62%, 51%, 0.745);
+  transition: transform 0.3s;
+
+  background: linear-gradient(
+    90deg,
+    rgba(77, 54, 208, 1) 0%,
+    rgba(132, 116, 254, 1) 100%
+  );
+}
+
+.btn__icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.btn:hover {
+  border-color: #f4f5f2;
+}
+
+.btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 0.5em 1.5em -0.5em hsla(249, 62%, 51%, 0.745);
+}
+/* From Uiverse.io by Pradeepsaranbishnoi */
+
+:root {
+  --size: 0.3; /* Tùy chỉnh giá trị này để tăng/giảm kích thước */
+}
+
+/* Main Circle */
+.main-circle {
+  width: calc(40rem * var(--size));
+  height: calc(40rem * var(--size));
+  border-radius: 100%;
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%, -70%);
+}
+
+/* Content Circle */
+.circle {
+  position: relative;
+  border-radius: 100%;
+  width: calc(8rem * var(--size));
+  height: calc(8rem * var(--size));
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+  margin: auto;
+}
+
+.crescent {
+  position: absolute;
+  border-radius: 100%;
+  right: 0;
+  width: calc(6rem * var(--size));
+  height: calc(6rem * var(--size));
+  background: white;
+  transform: scale(0);
+  transform-origin: top right;
+  transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+label,
+.toggle {
+  height: calc(1.5rem);
+  border-radius: 100px;
+}
+
+label {
+  display: flex;
+  justify-self: center;
+  width: 100%;
+  max-width: 200px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 100px;
+  position: relative;
+  cursor: pointer;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.toggle {
+  position: absolute;
+  width: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.names {
+  font-weight: bolder;
+  color: black;
+  width: 65%;
+  margin-left: 17.5%;
+  margin-top: calc(1% * var(--size));
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+}
+
+/* Switch Styles */
+[type="checkbox"]:checked + .app .toggle {
+  transform: translateX(100%);
+  background-color: #34323d;
+}
+
+[type="checkbox"]:checked + .app .dark {
+  opacity: 1;
+  color: white;
+}
+
+[type="checkbox"]:checked + .app .light {
+  opacity: 1;
+  color: white;
+}
+
+[type="checkbox"]:checked + .app .body {
+  background-color: #26242e;
+  color: white;
+}
+
+[type="checkbox"]:checked + .app .crescent {
+  transform: scale(1);
+  background: #26242e;
+}
+
+[type="checkbox"]:checked + .app .circle {
+  background: linear-gradient(40deg, #8983f7, #a3dafb 70%);
+}
+
+[type="checkbox"]:checked + .app .main-circle {
+  background: linear-gradient(40deg, #8983f7, #a3dafb 70%);
+}
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}

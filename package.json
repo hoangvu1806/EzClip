@@ -1,0 +1,16 @@
+{
+  "name": "EzClip",
+  "productName": "EzClip",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "Admin",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "32.1.2"
+  }
+}
