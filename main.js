@@ -1,33 +1,53 @@
-const { app, BrowserWindow } = require('electron');
-const path = require('path');
+const { app, BrowserWindow, ipcMain } = require("electron");
+const path = require("path");
 
-function createWindow () {
+function createWindow() {
   const win = new BrowserWindow({
-    width: 800,
+    width: 900,
     height: 600,
-    titleBarStyle: 'hidden',
+    minWidth: 770,
+    minHeight: 600,
+    titleBarStyle: "hidden",
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: true
-    }
+      preload: path.join(__dirname, "preload.js"),
+      nodeIntegration: false, // Tắt nodeIntegration để bảo mật
+      contextIsolation: true, // Bật contextIsolation để bảo mật
+    },
   });
   win.setMenuBarVisibility(false);
-  win.loadFile('index.html');
+  win.loadFile("index.html");
   win.webContents.openDevTools();
+
+  // Xử lý các sự kiện từ renderer process
+  ipcMain.on("minimizeApp", () => {
+    win.minimize();
+  });
+
+  ipcMain.on("maximizeApp", () => {
+    if (win.isMaximized()) {
+      win.restore();
+    } else {
+      win.maximize();
+    }
+  });
+
+  ipcMain.on("closeApp", () => {
+    win.close();
+  });
 }
 
 app.whenReady().then(() => {
   createWindow();
 
-  app.on('activate', () => {
+  app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
     }
   });
 });
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
     app.quit();
   }
 });

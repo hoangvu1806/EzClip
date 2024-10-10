@@ -12,5 +12,14 @@
   "dependencies": {},
   "devDependencies": {
     "electron": "32.1.2"
+  },
+  "win": {
+    "icon": "statics/img/icon.ico"
+  },
+  "mac": {
+    "icon": "statics/img/icon.png"
+  },
+  "linux": {
+    "icon": "statics/img/icon.png"
   }
 }
