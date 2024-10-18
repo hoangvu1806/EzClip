@@ -3,6 +3,32 @@ body {
   color: rgb(156, 161, 163);
   font-family: "Arial", sans-serif;
 }
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.main-bg {
+  background-color: #1d1b23;
+}
+
+.sidebar {
+  border-radius: 0;
+  background-color: #1d1b23;
+  height: 100vh;
+  border: 1px solid;
+  resize: horizontal;
+  max-width: 200px;
+  min-width: 190px; /* Độ rộng tối thiểu */
+  overflow: auto;
+  flex-shrink: 0;
+}
+.content {
+  min-width: 500px;
+  flex-grow: 1; /* Phần còn lại chiếm toàn bộ không gian */
+  padding: 2px;
+}
 
 .logo {
   display: grid;
@@ -43,8 +69,8 @@ body {
 }
 
 .window-btn img.icon {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
 }
 
 /* Hiệu ứng hover cho nút */
@@ -56,16 +82,18 @@ body {
   background-color: rgba(224, 49, 49, 0.378);
 }
 
-.main-bg {
-  background-color: #26242e;
+.nav-item:hover {
+  background-color: rgb(33, 31, 39);
+  border-radius: 10%;
+}
+.nav-item:before {
+  background-color: rgb(33, 31, 39);
+  border-radius: 10%;
 }
 
-.sidebar {
-  border-radius: 0;
-  background-color: #232129;
-  height: 100vh;
-  border: 1px solid;
-  max-width: 385px;
+.nav-item:active {
+  background-color: rgb(33, 31, 39);
+  border-radius: 10%;
 }
 
 .text-light {
@@ -91,14 +119,28 @@ body {
   min-width: auto;
 }
 
+.format-radio {
+  display: flex;
+}
+
+#downloadBtn {
+  margin-right: 20px;
+}
+
 .more-settings {
   background-color: #272526;
   padding: 15px;
   border-radius: 5px;
   margin-top: 20px;
 }
-.form-select {
-  width: auto;
+
+#startTime,
+#endTime,
+#formatFile {
+  position: relative;
+  margin: 12px;
+  max-height: 30px;
+  min-width: 90px;
 }
 
 .file-list h5 {
@@ -112,7 +154,6 @@ body {
   align-items: center;
   gap: 0.35em;
   padding: 0.75em 1em;
-  padding-right: 1.25em;
   color: #000000;
   border: 1px solid transparent;
   font-weight: 700;
@@ -120,7 +161,7 @@ body {
   font-size: 1rem;
   box-shadow: 0 0.7em 1.5em -0.5em hsla(357, 45%, 35%, 0.745);
   transition: transform 0.3s;
-
+  max-width: 200px;
   background: linear-gradient(
     90deg,
     rgb(240, 8, 8) 0%,
@@ -139,18 +180,31 @@ body {
 
 .btn:active {
   transform: scale(0.98);
-  box-shadow: 0 0.5em 1.5em -0.5em hsla(249, 62%, 51%, 0.745);
+  box-shadow: 0 0.5em 1.5em -0.5em hsla(334, 87%, 41%, 0.745);
 }
 /* From Uiverse.io by Pradeepsaranbishnoi */
 
 .input-url {
+  min-width: 40%;
   margin: 4px;
+  margin-left: 15px;
+}
+.input-url::selection {
+  background-color: #ee3636;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.576);
 }
 
+.main-content {
+  display: flex;
+  justify-content: center; /* Căn giữa theo trục ngang */
+  align-items: center; /* Căn giữa theo trục dọc (nếu có chiều cao) */
+}
 .video-show {
   display: flexbox;
   position: relative;
   justify-content: center;
+  margin-top: 0;
   width: 100%;
   height: 100%;
 }
@@ -249,13 +303,13 @@ label {
 }
 
 [type="checkbox"]:checked + .app .body {
-  background-color: #26242e;
+  background-color: #1d1b23;
   color: white;
 }
 
 [type="checkbox"]:checked + .app .crescent {
   transform: scale(1);
-  background: #26242e;
+  background: #1d1b23;
 }
 
 [type="checkbox"]:checked + .app .circle {
@@ -271,4 +325,55 @@ label {
   left: -9999px;
   opacity: 0;
   pointer-events: none;
+}
+/* From Uiverse.io by Pradeepsaranbishnoi */
+.radio-button {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 10px;
+  position: relative;
+  align-items: center;
+  color: white;
+  background: transparent;
+}
+
+.radio-button input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #56203f;
+  box-shadow: 0px 0px 5px rgba(89, 20, 74, 0.356);
+  transform: translateZ(-25px);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.radio::before {
+  position: absolute;
+
+  width: 10px;
+  height: 10px;
+  top: 5px;
+  left: 5px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.radio-button input[type="radio"]:checked + .radio {
+  border-color: #f48042;
+  background-color: #eb4261;
+}
+
+.radio-button input[type="radio"]:checked + .radio::before {
+  opacity: 1;
 }
