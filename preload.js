@@ -2,23 +2,45 @@ const { contextBridge, ipcRenderer } = require("electron");
 
 // Cung cấp các chức năng điều khiển cửa sổ (minimize, maximize, close)
 contextBridge.exposeInMainWorld("windowControls", {
-  minimize: () => ipcRenderer.send("minimizeApp"),
-  maximize: () => ipcRenderer.send("maximizeApp"),
-  close: () => ipcRenderer.send("closeApp"),
+    minimize: () => ipcRenderer.send("minimizeApp"),
+    maximize: () => ipcRenderer.send("maximizeApp"),
+    close: () => ipcRenderer.send("closeApp"),
+});
+
+contextBridge.exposeInMainWorld("openFolder", {
+    openSaveFolder: (path) => ipcRenderer.send("openSaveFolder", path),
 });
 
 // Cung cấp các API cho thao tác với video (fetch video info, download video)
 contextBridge.exposeInMainWorld("api", {
-  getVideoInfo: (url) => ipcRenderer.invoke("fetch-video-info", url),
+    getVideoInfo: (url) => ipcRenderer.invoke("fetch-video-info", url),
+    showSaveDialog: (options) =>
+        ipcRenderer.invoke("show-save-dialog", options),
+    downloadVideo: (
+        url,
+        selectedFileType,
+        formatId,
+        startTime,
+        endTime,
+        savePath
+    ) => {
+        return ipcRenderer.invoke(
+            "download-video",
+            url,
+            selectedFileType,
+            formatId,
+            startTime,
+            endTime,
+            savePath
+        );
+    },
+    send: (channel, data) => ipcRenderer.send(channel, data),
+    receive: (channel, func) => {
+        ipcRenderer.on(channel, (event, ...args) => func(...args));
+    },
+    invoke: (channel, ...args) => ipcRenderer.invoke(channel, ...args),
+});
 
-  // Gửi yêu cầu tải video với các tham số URL, format, thời gian bắt đầu, thời gian kết thúc, và chất lượng
-  downloadVideo: (url, format, startTime, endTime) => {
-    return ipcRenderer.invoke(
-      "download-video",
-      url,
-      format,
-      startTime,
-      endTime
-    );
-  },
+contextBridge.exposeInMainWorld("electron", {
+    openExternal: (url) => ipcRenderer.send("open-external", url),
 });

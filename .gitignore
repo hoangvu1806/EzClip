@@ -1,5 +1,12 @@
 node_modules
 out
-399downloaded_video.mp4
+*.pdf
 *.mp4
 *.exe
+ytb_videos
+tiktok_videos
+dist-linux-v1.0.3
+dist-linux-v1.0.1
+dist-v1.0.3
+v1.0.3
+downloads

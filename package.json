@@ -1,25 +1,98 @@
 {
-  "name": "EzClip",
-  "productName": "EzClip",
-  "description": "My Electron application description",
-  "keywords": [],
-  "main": "./main.js",
-  "version": "1.0.0",
-  "author": "Admin",
-  "scripts": {
-    "start": "electron ."
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "electron": "32.1.2"
-  },
-  "win": {
-    "icon": "statics/img/icon.ico"
-  },
-  "mac": {
-    "icon": "statics/img/icon.png"
-  },
-  "linux": {
-    "icon": "statics/img/icon.png"
-  }
+    "name": "ezclip",
+    "productName": "EzClip",
+    "description": "Ezclip - Application of electrons to download and cut videos",
+    "version": "1.0.3",
+    "author": "HoangVu",
+    "main": "./main.js",
+    "scripts": {
+        "clean-modules": "modclean -r -n default:safe",
+        "start": "electron .",
+        "build": "npm run clean-modules && electron-builder"
+    },
+    "devDependencies": {
+        "electron": "^32.1.2",
+        "electron-builder": "^25.1.8",
+        "modclean": "^3.0.0-beta.1"
+    },
+    "build": {
+        "removePackageScripts": true,
+        "asar": {
+            "smartUnpack": true
+        },
+        "compression": "maximum",
+        "appId": "com.ezclip.app",
+        "productName": "EzClip",
+        "copyright": "Copyright © 2024 Hoang Vu",
+        "directories": {
+            "output": "v1.0.3"
+        },
+        "files": [
+            "main.js",
+            "preload.js",
+            "index.html",
+            "statics/**/*",
+            "node_modules/**/*",
+            "!node_modules/**/*.map",
+            "!node_modules/**/README.md",
+            "!node_modules/**/test",
+            "!node_modules/**/__tests__",
+            "!node_modules/**/examples",
+            "!node_modules/**/doc",
+            "!**/*.d.ts",
+            "!**/*.log",
+            "!**/*.md",
+            "!locales/**/*",
+            "locales/en-US.pak"
+        ],
+        "extraResources": [
+            {
+                "from": "statics/processor/yt-dlp.exe",
+                "to": "yt-dlp.exe"
+            },
+            {
+                "from": "statics/processor/ffmpeg.exe",
+                "to": "ffmpeg.exe"
+            }
+        ],
+        "win": {
+            "icon": "statics/img/logo.ico",
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ]
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowToChangeInstallationDirectory": true,
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true,
+            "shortcutName": "EzClip"
+        },
+        "mac": {
+            "icon": "statics/img/logo.ico",
+            "target": "dmg"
+        },
+        "linux": {
+            "icon": "statics/img/logo.ico",
+            "target": [
+                "AppImage",
+                "deb",
+                "rpm"
+            ]
+        }
+    },
+    "license": "ISC",
+    "keywords": [
+        "Electron",
+        "Video Downloader",
+        "YouTube",
+        "Video Cutter",
+        "yt-dlp",
+        "ffmpeg"
+    ]
 }

@@ -1,379 +1,513 @@
-body {
-  background-color: #00000000;
-  color: rgb(156, 161, 163);
-  font-family: "Arial", sans-serif;
+:root {
+    --dark-primary: #1d1b23;
+    --dark-secondary: #272526;
+    --dark-tertiary: #3b3746;
+    --light-primary: #f5f5f5;
+    --light-secondary: #ebebeb;
+    --light-tertiary: #a5a5a5;
+    --bg-primary-color: var(--dark-primary);
+    --bg-secondary-color: var(--dark-secondary);
+    --border-primary-color: var(--dark-tertiary);
+    --nav-items-hover-color: rgb(33, 31, 39);
+    --text-color: var(--light-primary);
 }
-.container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+* {
+    user-select: none !important;
+}
+body {
+    background-color: var(--bg-primary-color);
+    color: var(--text-color);
+    font-family: "Nunito", Sans-serif;
 }
 
-.main-bg {
-  background-color: #1d1b23;
+#titleBar.offline {
+    padding: 10px;
+    background: linear-gradient(90deg, #eb4261, var(--bg-primary-color));
+    color: var(--text-color);
+    font-size: small;
+}
+
+.text-light {
+    color: var(--text-color) !important;
+}
+
+.change-theme {
+    --bg-primary-color: var(--light-primary);
+    --bg-secondary-color: var(--light-secondary);
+    --border-primary-color: var(--light-tertiary);
+    --nav-items-hover-color: var(--light-secondary);
+    --text-color: var(--dark-primary);
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 .sidebar {
-  border-radius: 0;
-  background-color: #1d1b23;
-  height: 100vh;
-  border: 1px solid;
-  resize: horizontal;
-  max-width: 200px;
-  min-width: 190px; /* Độ rộng tối thiểu */
-  overflow: auto;
-  flex-shrink: 0;
+    border-radius: 0;
+    background-color: var(--bg-primary-color);
+    color: var(--text-color);
+    height: 100vh;
+    border: 1px solid var(--border-primary-color);
+    resize: horizontal;
+    max-width: 200px;
+    min-width: 190px; /* Độ rộng tối thiểu */
+    overflow: auto;
+    flex-shrink: 0;
 }
 .content {
-  min-width: 500px;
-  flex-grow: 1; /* Phần còn lại chiếm toàn bộ không gian */
-  padding: 2px;
+    min-width: 500px;
+    flex-grow: 1; /* Phần còn lại chiếm toàn bộ không gian */
+    padding: 2px;
 }
 
 .logo {
-  display: grid;
-  place-items: center;
-  margin: 1rem;
+    display: grid;
+    place-items: center;
+    margin: 1rem;
 }
 /* Điều chỉnh chung cho top-bar */
 .top-bar {
-  width: 100%;
-  height: 40px;
-  background-color: #333;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  box-sizing: border-box;
-  background: transparent !important;
-  background: linear-gradient(40deg, #ff0080, #ff8c00 100%);
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    padding-right: 10px;
+    box-sizing: border-box;
+    background: transparent !important;
 }
 
 /* Đảm bảo drag-area co giãn để chiếm toàn bộ không gian còn lại */
 .drag-area {
-  flex-grow: 1; /* Cho phép phần này mở rộng theo kích thước cửa sổ */
-  height: 100%;
-  -webkit-app-region: drag;
+    flex-grow: 1; /* Cho phép phần này mở rộng theo kích thước cửa sổ */
+    height: 100%;
+    -webkit-app-region: drag;
 }
 
 /* Căn chỉnh nút cửa sổ */
 .window-controls {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 
 .window-btn {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .window-btn img.icon {
-  width: 16px;
-  height: 16px;
+    width: 16px;
+    height: 16px;
 }
 
 /* Hiệu ứng hover cho nút */
 .window-btn:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    background-color: rgba(174, 174, 174, 0.318);
 }
 
 .close-btn:hover {
-  background-color: rgba(224, 49, 49, 0.378);
+    border-radius: 3px;
+    background-color: rgba(248, 17, 17, 0.519);
 }
-
+.nav-item {
+    color: #e7b1d0;
+}
 .nav-item:hover {
-  background-color: rgb(33, 31, 39);
-  border-radius: 10%;
+    background-color: var(--nav-items-hover-color);
+    border-radius: 5%;
 }
 .nav-item:before {
-  background-color: rgb(33, 31, 39);
-  border-radius: 10%;
+    background-color: var(--nav-items-hover-color);
+    border-radius: 5%;
 }
 
 .nav-item:active {
-  background-color: rgb(33, 31, 39);
-  border-radius: 10%;
-}
-
-.text-light {
-  color: #f5f5f5;
+    background-color: var(--nav-items-hover-color);
+    border-radius: 5%;
 }
 
 .my-files h5 {
-  font-size: 16px;
-  margin-bottom: 20px;
+    font-size: 16px;
+    margin-bottom: 20px;
 }
 
 .nav-link {
-  color: #2f2fc1;
-  margin-bottom: 10px;
-}
-
-.nav-link:hover {
-  color: white;
+    color: var(--text-color);
+    margin-bottom: 10px;
 }
 
 .input-url {
-  border-radius: 20px;
-  min-width: auto;
+    border-radius: 20px;
+    min-width: auto;
+}
+/* From Uiverse.io by Pradeepsaranbishnoi */
+.radio-button {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 10px;
+    position: relative;
+    align-items: center;
+    color: var(--text-color);
+    background: transparent;
+}
+
+.radio-button input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.radio {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #56203f;
+    box-shadow: 0px 0px 5px rgba(89, 20, 74, 0.356);
+    transform: translateZ(-25px);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.radio::before {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 5px;
+    left: 5px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.radio-button input[type="radio"]:checked + .radio {
+    border-color: #f48042;
+    background-color: #eb4261;
+}
+
+.radio-button input[type="radio"]:checked + .radio::before {
+    opacity: 1;
 }
 
 .format-radio {
-  display: flex;
+    display: flex;
 }
 
 #downloadBtn {
-  margin-right: 20px;
+    margin-right: 20px;
 }
 
 .more-settings {
-  background-color: #272526;
-  padding: 15px;
-  border-radius: 5px;
-  margin-top: 20px;
+    background-color: var(--bg-secondary-color);
+    clear: both;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
 }
 
 #startTime,
 #endTime,
 #formatFile {
-  position: relative;
-  margin: 12px;
-  max-height: 30px;
-  min-width: 90px;
+    position: relative;
+    margin: 12px;
+    max-height: 30px;
+    min-width: 90px;
+    font-size: 14px;
 }
 
 .file-list h5 {
-  font-size: 18px;
+    font-size: 18px;
 }
 .btn {
-  line-height: 1;
-  background-color: transparent;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.35em;
-  padding: 0.75em 1em;
-  color: #000000;
-  border: 1px solid transparent;
-  font-weight: 700;
-  border-radius: 2em;
-  font-size: 1rem;
-  box-shadow: 0 0.7em 1.5em -0.5em hsla(357, 45%, 35%, 0.745);
-  transition: transform 0.3s;
-  max-width: 200px;
-  background: linear-gradient(
-    90deg,
-    rgb(240, 8, 8) 0%,
-    rgb(206, 122, 122) 100%
-  );
+    line-height: 1;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.35em;
+    padding: 0.75em 1em;
+    color: var(--bg-primary-color);
+    border: 1px solid transparent;
+    font-weight: 700;
+    border-radius: 2em;
+    font-size: 1rem;
+    box-shadow: 0 0.7em 1.5em -0.5em hsla(357, 45%, 35%, 0.745);
+    transition: transform 0.3s;
+    max-width: 200px;
+    background: linear-gradient(
+        90deg,
+        rgb(240, 8, 8) 0%,
+        rgb(206, 122, 122) 100%
+    );
 }
 
 .btn__icon {
-  width: 1.5em;
-  height: 1.5em;
+    width: 1.5em;
+    height: 1.5em;
 }
 
 .btn:hover {
-  border-color: #f4f5f2;
+    border-color: var(--text-color);
 }
 
 .btn:active {
-  transform: scale(0.98);
-  box-shadow: 0 0.5em 1.5em -0.5em hsla(334, 87%, 41%, 0.745);
+    transform: scale(0.98);
+    box-shadow: 0 0.5em 1.5em -0.5em hsla(334, 87%, 41%, 0.745);
 }
 /* From Uiverse.io by Pradeepsaranbishnoi */
 
 .input-url {
-  min-width: 40%;
-  margin: 4px;
-  margin-left: 15px;
+    min-width: 40%;
+    margin: 4px;
+    margin-left: 15px;
 }
 .input-url::selection {
-  background-color: #ee3636;
-  color: #fff;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.576);
+    background-color: #ee3636;
+    color: #d59c9c;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.576);
 }
 
 .main-content {
-  display: flex;
-  justify-content: center; /* Căn giữa theo trục ngang */
-  align-items: center; /* Căn giữa theo trục dọc (nếu có chiều cao) */
+    display: flex;
+    justify-content: center; /* Căn giữa theo trục ngang */
+    align-items: center; /* Căn giữa theo trục dọc (nếu có chiều cao) */
 }
 .video-show {
-  display: flexbox;
-  position: relative;
-  justify-content: center;
-  margin-top: 0;
-  width: 100%;
-  height: 100%;
+    display: flexbox;
+    position: relative;
+    justify-content: center;
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
 }
 
 :root {
-  --size: 0.3; /* Tùy chỉnh giá trị này để tăng/giảm kích thước */
+    --size: 0.3; /* Tùy chỉnh giá trị này để tăng/giảm kích thước */
 }
 
 /* Main Circle */
 .main-circle {
-  width: calc(40rem * var(--size));
-  height: calc(40rem * var(--size));
-  border-radius: 100%;
-  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
-  position: absolute;
-  z-index: 1;
-  left: 50%;
-  transform: translate(-50%, -70%);
+    width: calc(40rem * var(--size));
+    height: calc(40rem * var(--size));
+    border-radius: 100%;
+    background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    transform: translate(-50%, -70%);
 }
 
 /* Content Circle */
 .circle {
-  position: relative;
-  border-radius: 100%;
-  width: calc(8rem * var(--size));
-  height: calc(8rem * var(--size));
-  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
-  margin: auto;
+    position: relative;
+    border-radius: 100%;
+    width: calc(8rem * var(--size));
+    height: calc(8rem * var(--size));
+    background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+    margin: auto;
 }
 
 .crescent {
-  position: absolute;
-  border-radius: 100%;
-  right: 0;
-  width: calc(6rem * var(--size));
-  height: calc(6rem * var(--size));
-  background: white;
-  transform: scale(0);
-  transform-origin: top right;
-  transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+    position: absolute;
+    border-radius: 100%;
+    right: 0;
+    width: calc(6rem * var(--size));
+    height: calc(6rem * var(--size));
+    background: var(--bg-primary-color);
+    transform: scale(0);
+    transform-origin: top right;
+    transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 label,
 .toggle {
-  height: calc(1.5rem);
-  border-radius: 100px;
+    height: calc(1.5rem);
+    border-radius: 100px;
 }
 
 label {
-  display: flex;
-  justify-self: center;
-  width: 100%;
-  max-width: 200px;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 100px;
-  position: relative;
-  cursor: pointer;
-  margin: auto;
-  margin-top: 1rem;
+    display: flex;
+    justify-self: center;
+    width: 100%;
+    max-width: 200px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 1rem;
 }
 
 .toggle {
-  position: absolute;
-  width: 50%;
-  background-color: #fff;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: absolute;
+    width: 50%;
+    background-color: #fff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .names {
-  font-weight: bolder;
-  color: black;
-  width: 65%;
-  margin-left: 17.5%;
-  margin-top: calc(1% * var(--size));
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  user-select: none;
+    font-weight: bolder;
+    color: black;
+    width: 65%;
+    margin-left: 17.5%;
+    margin-top: calc(1% * var(--size));
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    user-select: none;
 }
 
 /* Switch Styles */
 [type="checkbox"]:checked + .app .toggle {
-  transform: translateX(100%);
-  background-color: #34323d;
+    transform: translateX(100%);
+    background-color: var(--bg-primary-color);
 }
 
 [type="checkbox"]:checked + .app .dark {
-  opacity: 1;
-  color: white;
+    opacity: 1;
+    color: var(--light-primary);
 }
 
 [type="checkbox"]:checked + .app .light {
-  opacity: 1;
-  color: white;
+    opacity: 1;
+    color: var(--bg-primary-color);
+    .nav-item {
+        color: var(--text-color);
+    }
 }
 
 [type="checkbox"]:checked + .app .body {
-  background-color: #1d1b23;
-  color: white;
+    background-color: var(--bg-primary-color);
+    color: var(--bg-primary-color);
 }
 
 [type="checkbox"]:checked + .app .crescent {
-  transform: scale(1);
-  background: #1d1b23;
+    transform: scale(1);
+    background: var(--bg-primary-color);
 }
 
 [type="checkbox"]:checked + .app .circle {
-  background: linear-gradient(40deg, #8983f7, #a3dafb 70%);
+    background: linear-gradient(40deg, #8983f7, #a3dafb 70%);
 }
 
 [type="checkbox"]:checked + .app .main-circle {
-  background: linear-gradient(40deg, #8983f7, #a3dafb 70%);
+    background: linear-gradient(40deg, #8983f7, #a3dafb 70%);
 }
 [type="checkbox"]:checked,
 [type="checkbox"]:not(:checked) {
-  position: absolute;
-  left: -9999px;
-  opacity: 0;
-  pointer-events: none;
-}
-/* From Uiverse.io by Pradeepsaranbishnoi */
-.radio-button {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin: 10px;
-  position: relative;
-  align-items: center;
-  color: white;
-  background: transparent;
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
 }
 
-.radio-button input[type="radio"] {
-  position: absolute;
-  opacity: 0;
+#progressContainer {
+    width: 100%;
+    margin: 1px auto; /* Căn giữa và tạo khoảng cách trên dưới */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng bóng */
 }
 
-.radio {
-  position: relative;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 2px solid #56203f;
-  box-shadow: 0px 0px 5px rgba(89, 20, 74, 0.356);
-  transform: translateZ(-25px);
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
+#downloadProgress {
+    display: flex;
+    width: 100%; /* Đặt chiều rộng thanh progress */
+    height: 1px; /* Chiều cao của thanh progress */
+    appearance: none; /* Tắt style mặc định */
+    border-radius: 10px;
+    background-color: #e0e0e0;
+    overflow: hidden;
 }
 
-.radio::before {
-  position: absolute;
-
-  width: 10px;
-  height: 10px;
-  top: 5px;
-  left: 5px;
-  border-radius: 50%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
+#downloadProgress::-webkit-progress-bar {
+    background-color: #e0e0e0; /* Màu nền bên trong */
 }
 
-.radio-button input[type="radio"]:checked + .radio {
-  border-color: #f48042;
-  background-color: #eb4261;
+#downloadProgress::-webkit-progress-value {
+    background-color: #f93868; /* Màu thanh tiến trình */
+    transition: width 0.25s ease-in-out; /* Hiệu ứng mượt khi tiến trình thay đổi */
 }
 
-.radio-button input[type="radio"]:checked + .radio::before {
-  opacity: 1;
+#downloadProgress::-moz-progress-bar {
+    background-color: #f93868;
+    transition: width 0.25s ease-in-out;
+}
+
+/* Snackbar container */
+.snackbar {
+    visibility: hidden; /* Ẩn mặc định */
+    min-width: 250px;
+    background-color: var(--bg-primary-color); /* Màu nền */
+    color: var(--text-color); /* Màu chữ */
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    bottom: 20px; /* Cách đáy màn hình */
+    right: 20px; /* Cách phải màn hình */
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Hiển thị snackbar */
+.snackbar.show {
+    visibility: visible;
+    animation: fadeInOut 4s; /* Hiệu ứng fade in/out */
+}
+
+/* Nút Open Folder */
+#snackbarOpenFolderBtn {
+    background-color: #4caf50;
+    color: var(--text-color);
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#snackbarOpenFolderBtn:hover {
+    background-color: #45a049;
+}
+
+/* Hiệu ứng fade in/out */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    10%,
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+/* Nút Close */
+#snackbarCloseBtn {
+    background-color: #ce5c54;
+    color: var(--text-color);
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#snackbarCloseBtn:hover {
+    background-color: #aa1111;
 }
