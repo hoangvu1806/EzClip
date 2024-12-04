@@ -1,114 +1,103 @@
+
+# EzClip
+
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
+    <img width=200px height=200px src="./statics/img/logo.png" alt="EzClip logo">
+  </a>
 </p>
-
-<h3 align="center">ezclip</h3>
 
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
+[![GitHub Issues](https://img.shields.io/github/issues/hoangvu1806/EzClip.svg)](https://github.com/hoangvu1806/EzClip/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/hoangvu1806/EzClip.svg)](https://github.com/hoangvu1806/EzClip/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
 </div>
 
----
-
-<p align="center"> Few lines describing your project.
-    <br> 
-</p>
+EzClip is a powerful application designed to effortlessly download videos from a variety of online platforms.
 
 ## 📝 Table of Contents
 
 - [About](#about)
 - [Getting Started](#getting_started)
-- [Deployment](#deployment)
+- [Features](#features)
 - [Usage](#usage)
-- [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
+- [Built With](#built_with)
+- [Contributing](#contributing)
 - [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
+- [Acknowledgements](#acknowledgements)
 
 ## 🧐 About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+EzClip is a desktop application built using Electron.js. It allows users to download videos from platforms like YouTube, Facebook, TikTok, and many others. The application leverages `yt-dlp` to support a wide range of video formats and quality options, all without the need for a server or third-party libraries like `ytdl-core`.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+Follow the instructions below to set up and run EzClip on your local machine.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
+Ensure you have the following software installed:
 
-```
-Give examples
-```
+- Node.js v16 or later
+- npm or Yarn
 
-### Installing
+### Installation
 
-A step by step series of examples that tell you how to get a development env running.
+1. **Clone the repository:**
 
-Say what the step will be
+   ```bash
+   git clone https://github.com/hoangvu1806/EzClip.git
+   cd EzClip
+   ```
 
-```
-Give the example
-```
+2. **Install dependencies:**
 
-And repeat
+   ```bash
+   npm install
+   ```
 
-```
-until finished
-```
+3. **Run the application:**
 
-End with an example of getting some data out of the system or using it for a little demo.
+   ```bash
+   npm start
+   ```
 
-## 🔧 Running the tests <a name = "tests"></a>
+## ✨ Features <a name = "features"></a>
 
-Explain how to run the automated tests for this system.
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+- Support for multiple platforms including YouTube, Facebook, TikTok, etc.
+- Download videos in various formats and resolutions.
+- Simple and intuitive user interface.
+- Offline functionality – no server required.
 
 ## 🎈 Usage <a name="usage"></a>
 
-Add notes about how to use the system.
+1. Open the application.
+2. Paste the URL of the video you wish to download.
+3. Select the desired format and quality.
+4. Click the download button and wait for the process to complete.
 
-## 🚀 Deployment <a name = "deployment"></a>
+### Download the Setup File
 
-Add additional notes about how to deploy this on a live system.
+You can download the `.exe` setup file from [hoangvu.id.vn/ezclip](https://hoangvu.id.vn/ezclip) to install and use EzClip directly.
 
-## ⛏️ Built Using <a name = "built_using"></a>
+## ⛏️ Built With <a name = "built_with"></a>
 
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
+- [Electron.js](https://www.electronjs.org/) - Cross-platform desktop app framework
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) - Video download utility
+- [Node.js](https://nodejs.org/) - JavaScript runtime
+
+## 🤝 Contributing <a name = "contributing"></a>
+
+Contributions are welcome! Feel free to open a pull request or an issue on [GitHub](https://github.com/hoangvu1806/EzClip).
 
 ## ✍️ Authors <a name = "authors"></a>
 
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
+- **Đỗ Hoàng Vũ** - [@hoangvu1806](https://github.com/hoangvu1806) - Lead Developer
 
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
+## 🎉 Acknowledgements <a name = "acknowledgements"></a>
 
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+- Special thanks to the `yt-dlp` community for their invaluable tool.
+- Inspired by various open-source projects.
